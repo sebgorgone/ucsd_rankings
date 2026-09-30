@@ -28,11 +28,22 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean',
         ];
     }
 
     public function brackets(): HasMany
     {
-        return  $this->HasMany(Bracket::class);
+        return $this->hasMany(Bracket::class);
+    }
+
+    public function candidates(): HasMany
+    {
+        return $this->hasMany(Candidate::class, 'submitted_by');
+    }
+
+    public function votes(): HasMany
+    {
+        return $this->hasMany(Vote::class);
     }
 }

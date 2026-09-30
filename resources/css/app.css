@@ -2,6 +2,64 @@
 @tailwind components;
 @tailwind utilities;
 
-@theme {
-    --font-sans: "Inter", sans-serif;
+[x-cloak] {
+    display: none !important;
+}
+
+.guest-card label {
+    color: rgb(226 232 240);
+}
+
+@media (min-width: 1024px) {
+    .bracket-grid {
+        display: flex;
+        gap: 4rem;
+    }
+
+    .bracket-round-grid {
+        display: grid;
+        grid-template-rows: repeat(var(--bracket-size), 6rem);
+        width: 18rem;
+        flex: none;
+    }
+
+    .bracket-match {
+        position: relative;
+        align-self: center;
+        z-index: 1;
+    }
+
+    .bracket-match.has-next::after {
+        position: absolute;
+        top: 50%;
+        left: 100%;
+        width: 2rem;
+        border-top: 2px solid rgb(100 116 139);
+        content: "";
+    }
+
+    .bracket-connector {
+        position: absolute;
+        top: 50%;
+        left: calc(100% + 2rem);
+        width: 2rem;
+        border-top: 2px solid rgb(100 116 139);
+    }
+
+    .bracket-connector::after {
+        position: absolute;
+        left: 0;
+        width: 0;
+        height: var(--connector-offset);
+        border-left: 2px solid rgb(100 116 139);
+        content: "";
+    }
+
+    .bracket-match-upper .bracket-connector::after {
+        top: 0;
+    }
+
+    .bracket-match-lower .bracket-connector::after {
+        bottom: 0;
+    }
 }
