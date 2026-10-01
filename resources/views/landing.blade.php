@@ -169,7 +169,7 @@
                     <x-application-logo class="h-8 w-auto" />
                     UCSD Rankings
                 </div>
-                <p>Public brackets powered by community votes.</p>
+                <p>Maybe put it to a vote</p>
             </div>
         </footer>
     </body>
